@@ -1,13 +1,14 @@
 import json
-import re
+import re,argparse,os
 import warnings
 import pkg_resources
 import requests
 from bs4 import BeautifulSoup
 
-
 def _parse_webpage(url):
     webpage={}
+    if not url.startswith('http'):
+        url='http://'+url
     response = requests.get(url)
     webpage['url'] = response.url
     webpage['headers'] = response.headers
@@ -108,10 +109,10 @@ def _get_implied_apps(detected_apps, apps1):
     return all_implied_apps
 
 
-def analyze():
-    url = raw_input('Enter the URL: ')
+def analyze(target):
+    url = target
     webpage = _parse_webpage(url)
-    obj = json.loads(pkg_resources.resource_string(__name__, "data/apps.json"))
+    obj = json.loads(pkg_resources.resource_string(__name__, "apps.json"))
     apps = obj['apps']
     detected = []
     for app_name, app in apps.items():
@@ -132,8 +133,11 @@ def analyze():
 
 
 if __name__ == '__main__':
-    printing = analyze()
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-u", "--url", required=True,help="Please enter target Url")
+    args = vars(ap.parse_args())
+    printing = analyze(args['url'])
     for x in printing.items():
         string = '\nCategory: '+str(x[0])+'\nFrameworks :'+','.join(x[1])
-        print string
+        print(string)
 
