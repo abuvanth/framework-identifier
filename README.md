@@ -6,3 +6,8 @@ Run:
 ## Running the script
 To run the script, the following command is to be used:
 `python wappalyze.py`
+
+
+Install from pip
+
+pip install wappalyze

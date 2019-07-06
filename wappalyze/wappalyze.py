@@ -1,10 +1,13 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import json
 import re,argparse,os
 import warnings
 import pkg_resources
 import requests
 from bs4 import BeautifulSoup
-
+BASE_DIRECTORY = os.path.split(__file__)[0]
+app_path = os.path.join(BASE_DIRECTORY,"apps.json")
 def _parse_webpage(url):
     webpage={}
     if not url.startswith('http'):
@@ -112,7 +115,7 @@ def _get_implied_apps(detected_apps, apps1):
 def analyze(target):
     url = target
     webpage = _parse_webpage(url)
-    obj = json.loads(pkg_resources.resource_string(__name__, "apps.json"))
+    obj = json.loads(open(app_path,'r').read())
     apps = obj['apps']
     detected = []
     for app_name, app in apps.items():
