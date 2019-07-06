@@ -11,3 +11,8 @@ To run the script, the following command is to be used:
 Install from pip
 
 pip install wappalyze
+
+# Usage
+
+wappalyze.py -u google.com
+
