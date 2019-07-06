@@ -12,7 +12,7 @@ if os.path.isfile(requirementPath):
         install_requires = f.read().splitlines()
 setuptools.setup(
     name="wappalyze",
-    version="1.2",
+    version="1.6",
     author="Shaddy Garg",
     author_email="shaddygarg1@gmail.com",
     description="Framework Identifier tool",
@@ -23,7 +23,7 @@ setuptools.setup(
     package_dir={'wappalyze': 'wappalyze'},
     package_data={'wappalyze': ['apps.json']},
     install_requires=install_requires,
-    scripts=['wappalyze/wappalyze.py'],
+    scripts=['wapp'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

@@ -115,7 +115,7 @@ def _get_implied_apps(detected_apps, apps1):
 def analyze(target):
     url = target
     webpage = _parse_webpage(url)
-    obj = json.loads(open(app_path,'r').read())
+    obj = json.loads(pkg_resources.resource_string(__name__, "apps.json"))
     apps = obj['apps']
     detected = []
     for app_name, app in apps.items():
@@ -134,8 +134,7 @@ def analyze(target):
         inv_map[v].append(k)
     return inv_map
 
-
-if __name__ == '__main__':
+def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("-u", "--url", required=True,help="Please enter target Url")
     args = vars(ap.parse_args())
@@ -143,4 +142,6 @@ if __name__ == '__main__':
     for x in printing.items():
         string = '\nCategory: '+str(x[0])+'\nFrameworks :'+','.join(x[1])
         print(string)
+if __name__ == '__main__':
+    main()
 

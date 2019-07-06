@@ -14,7 +14,7 @@ pip install wappalyze
 
 # Usage
 
-wappalyze.py -u google.com
+wapp -u google.com
 
 # Use as a module
 
