@@ -16,3 +16,10 @@ pip install wappalyze
 
 wappalyze.py -u google.com
 
+# Use as a module
+
+import wappalyzer
+
+result wappalyzer.analyze('google.com')
+
+print(result)
