@@ -1,2 +1,2 @@
-from .wappalyze import main
+from .Wappalyze import main
 main()

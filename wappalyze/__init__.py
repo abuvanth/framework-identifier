@@ -1,1 +1,1 @@
-from wappalyze import *
+from Wappalyze import *
