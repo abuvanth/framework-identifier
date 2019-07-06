@@ -20,6 +20,6 @@ wappalyze.py -u google.com
 
 import wappalyze
 
-result wappalyze.analyze('google.com')
+result = wappalyze.analyze('google.com')
 
 print(result)
