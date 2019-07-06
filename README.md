@@ -18,8 +18,8 @@ wappalyze.py -u google.com
 
 # Use as a module
 
-import wappalyzer
+import wappalyze
 
-result wappalyzer.analyze('google.com')
+result wappalyze.analyze('google.com')
 
 print(result)
